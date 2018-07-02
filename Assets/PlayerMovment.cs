@@ -18,9 +18,17 @@ public class PlayerMovment : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKey("right"))
+        {
             rb2D.AddForce(transform.right * thrust);
+        }
         else if (Input.GetKey("left"))
+        {
             rb2D.AddForce(transform.right * -thrust);
+        }
+        else
+        {
+            rb2D.AddForce(transform.up * -2*thrust);
+        }
     }
 
     private void OnGUI()
