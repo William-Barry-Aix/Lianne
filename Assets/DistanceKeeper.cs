@@ -14,7 +14,6 @@ public class DistanceKeeper : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("MaxOnly: " + mapAnchorJoint.maxDistanceOnly);
         if (mapAnchorJoint.maxDistanceOnly)
         {
             
@@ -22,7 +21,6 @@ public class DistanceKeeper : MonoBehaviour {
             float DistX = mapAnchorRB.transform.position.x - transform.position.x;
 
             float distance = Mathf.Sqrt(Mathf.Pow(DistY, 2) + Mathf.Pow(DistX, 2));
-            Debug.Log(distance);
             if (distance >= mapAnchorJoint.distance)
             {
                 mapAnchorJoint.maxDistanceOnly = false;
