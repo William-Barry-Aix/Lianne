@@ -5,11 +5,11 @@ using UnityEngine;
 public class DistanceKeeper : MonoBehaviour {
     private DistanceJoint2D mapAnchorJoint;
     private Rigidbody2D mapAnchorRB;
+
     // Use this for initialization
     void Start () {
         mapAnchorJoint = GetComponent<DistanceJoint2D>();
         mapAnchorRB = mapAnchorJoint.connectedBody;
-
     }
 	
 	// Update is called once per frame
@@ -27,11 +27,9 @@ public class DistanceKeeper : MonoBehaviour {
             {
                 mapAnchorJoint.maxDistanceOnly = false;
             }
-        }
+        }        
+    }
+    
 
-
-
-        //Debug.Log(curentDist);
-        //Debug.Log(mapAnchorJoint.distance);
     }
 }
