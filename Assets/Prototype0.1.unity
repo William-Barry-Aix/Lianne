@@ -381,8 +381,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 5
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0.75
+  m_AngularDrag: 0.5
   m_GravityScale: 0.25
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -495,7 +495,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.35
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -519,7 +519,7 @@ DistanceJoint2D:
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
   m_Distance: 5
-  m_MaxDistanceOnly: 1
+  m_MaxDistanceOnly: 0
 --- !u!114 &871151607
 MonoBehaviour:
   m_ObjectHideFlags: 0

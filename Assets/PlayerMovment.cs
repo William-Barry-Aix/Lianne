@@ -6,33 +6,70 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour {
 
     private Rigidbody2D rb2D;
+    Rigidbody2D playerAnchor;
+    Rigidbody2D mapAnchor;
     public float thrust;
 
 
     // Use this for initialization
     void Start () {
         rb2D = GetComponent<Rigidbody2D>();
-        thrust = 20.0f; 
+        playerAnchor = GetComponent<DistanceJoint2D>().connectedBody;
+        setMapAnchor(playerAnchor.gameObject.GetComponent<DistanceJoint2D>().connectedBody);
+        thrust = 35.0f;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey("right"))
+        if (playerAnchor)
         {
-            rb2D.AddForce(transform.right * thrust);
-        }
-        else if (Input.GetKey("left"))
-        {
-            rb2D.AddForce(transform.right * -thrust);
-        }
-        else
-        {
-            rb2D.AddForce(transform.up * -2*thrust);
+            if (mapAnchor)
+            {
+                if (playerAnchor.GetComponent<DistanceKeeper>().isFixed())
+                {
+                    if (Input.GetKey("right"))
+                    {                        
+                        rb2D.AddForce(transform.right * thrust);
+                    }
+                    else if (Input.GetKey("left"))
+                    {
+                        rb2D.AddForce(transform.right * -thrust);
+                    }
+                    else if (Input.GetKey("down"))
+                    {
+                        stopSwinging();
+                    }
+                }
+            }
         }
     }
+
+    private void stopSwinging()
+    {
+        if (rb2D.velocity.y < 0)
+        {
+
+            if (transform.position.x < mapAnchor.position.x)
+            {
+                rb2D.AddForce(transform.right * -rb2D.velocity* thrust);
+            }
+            else if (transform.position.x > mapAnchor.position.x)
+            {
+                rb2D.AddForce(transform.right * -rb2D.velocity* thrust);
+            }
+        }
+        
+    }
+
 
     private void OnGUI()
     {
         //
+    }
+    
+    public void setMapAnchor(Rigidbody2D mapAnchor)
+    {
+        this.mapAnchor = mapAnchor;
+        playerAnchor.gameObject.GetComponent<DistanceJoint2D>().connectedBody = mapAnchor;
     }
 }
