@@ -39,6 +39,19 @@ public class PlayerMovment : MonoBehaviour {
                     else if (Input.GetKey("down"))
                     {
                         //stopSwinging();
+                        if (stopedSwinging())
+                        {
+                            
+                            playerAnchor.GetComponent<DistanceKeeper>().extend();
+                        }
+                    }
+                    else if (Input.GetKey("up"))
+                    {
+                        if (stopedSwinging())
+                        {
+                            
+                            playerAnchor.GetComponent<DistanceKeeper>().shorten();
+                        }                       
                     }
                 }
             }
