@@ -14,9 +14,9 @@ public class PlayerMovment : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb2D = GetComponent<Rigidbody2D>();
-        thrust = 20.0f; 
         playerAnchor = GetComponent<DistanceJoint2D>().connectedBody;
         setMapAnchor(playerAnchor.gameObject.GetComponent<DistanceJoint2D>().connectedBody);
+        thrust = 35.0f;
     }
 	
 	// Update is called once per frame
