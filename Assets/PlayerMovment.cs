@@ -43,10 +43,24 @@ public class PlayerMovment : MonoBehaviour {
             }
         }
     }
+
+    private void stopSwinging()
+    {
+        if (rb2D.velocity.y < 0)
         {
-            rb2D.AddForce(transform.up * -2*thrust);
+
+            if (transform.position.x < mapAnchor.position.x)
+            {
+                rb2D.AddForce(transform.right * -rb2D.velocity* thrust);
+            }
+            else if (transform.position.x > mapAnchor.position.x)
+            {
+                rb2D.AddForce(transform.right * -rb2D.velocity* thrust);
+            }
         }
+        
     }
+
 
     private void OnGUI()
     {
