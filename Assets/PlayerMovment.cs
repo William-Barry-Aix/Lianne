@@ -37,7 +37,7 @@ public class PlayerMovment : MonoBehaviour {
                     }
                     else if (Input.GetKey("down"))
                     {
-                        stopSwinging();
+                        //stopSwinging();
                     }
                 }
             }
