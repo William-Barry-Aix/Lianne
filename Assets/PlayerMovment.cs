@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour {
 
     private Rigidbody2D rb2D;
-    Rigidbody2D playerAnchor;
-    Rigidbody2D mapAnchor;
-    public float thrust;
+    private Rigidbody2D playerAnchor;
+    private Rigidbody2D mapAnchor;
+    private float thrust = 35.0f;
 
 
     // Use this for initialization
