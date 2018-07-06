@@ -8,7 +8,7 @@ public class PlayerMovment : MonoBehaviour {
     private Rigidbody2D rb2D;
     private Rigidbody2D playerAnchor;
     private Rigidbody2D mapAnchor;
-    private float thrust = 35.0f;
+    private float thrust;
 
 
     // Use this for initialization
@@ -17,6 +17,7 @@ public class PlayerMovment : MonoBehaviour {
         playerAnchor = GetComponent<DistanceJoint2D>().connectedBody;
         setMapAnchor(playerAnchor.gameObject.GetComponent<DistanceJoint2D>().connectedBody);
         thrust = 35.0f;
+        
     }
 	
 	// Update is called once per frame
@@ -37,12 +38,37 @@ public class PlayerMovment : MonoBehaviour {
                     }
                     else if (Input.GetKey("down"))
                     {
-                        stopSwinging();
+                        //stopSwinging();
+                        if (stopedSwinging())
+                        {
+                            
+                            playerAnchor.GetComponent<DistanceKeeper>().extend();
+                        }
+                    }
+                    else if (Input.GetKey("up"))
+                    {
+                        if (stopedSwinging())
+                        {
+                            
+                            playerAnchor.GetComponent<DistanceKeeper>().shorten();
+                        }                       
                     }
                 }
             }
         }
     }
+
+    private bool stopedSwinging()
+    {
+        if (transform.position.x <= mapAnchor.position.x + 0.2 &&
+            transform.position.x >= mapAnchor.position.x - 0.2)
+        {
+            
+            return rb2D.velocity.magnitude < 0.5f;
+        }
+        return false;
+    }
+
 
     private void stopSwinging()
     {
