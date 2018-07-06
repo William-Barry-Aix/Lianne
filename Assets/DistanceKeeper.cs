@@ -38,4 +38,19 @@ public class DistanceKeeper : MonoBehaviour {
     {
         return !mapAnchorJoint.maxDistanceOnly;
     }
+    public void extend()
+    {
+        if (GetComponent<DistanceJoint2D>().distance < maxLength)
+        {
+            GetComponent<DistanceJoint2D>().distance += resizeSpeed*1.2f;
+        }
+    }
+
+    public void shorten()
+    {
+        if (GetComponent<DistanceJoint2D>().distance > 0)
+        {
+            GetComponent<DistanceJoint2D>().distance -= resizeSpeed;
+        }
+    }
 }
