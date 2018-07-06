@@ -17,6 +17,7 @@ public class PlayerMovment : MonoBehaviour {
         playerAnchor = GetComponent<DistanceJoint2D>().connectedBody;
         setMapAnchor(playerAnchor.gameObject.GetComponent<DistanceJoint2D>().connectedBody);
         thrust = 35.0f;
+        
     }
 	
 	// Update is called once per frame
@@ -43,6 +44,18 @@ public class PlayerMovment : MonoBehaviour {
             }
         }
     }
+
+    private bool stopedSwinging()
+    {
+        if (transform.position.x <= mapAnchor.position.x + 0.2 &&
+            transform.position.x >= mapAnchor.position.x - 0.2)
+        {
+            
+            return rb2D.velocity.magnitude < 0.5f;
+        }
+        return false;
+    }
+
 
     private void stopSwinging()
     {
