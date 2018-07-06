@@ -31,5 +31,8 @@ public class DistanceKeeper : MonoBehaviour {
     }
     
 
+    public bool isFixed()
+    {
+        return !mapAnchorJoint.maxDistanceOnly;
     }
 }
