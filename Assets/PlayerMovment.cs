@@ -66,4 +66,10 @@ public class PlayerMovment : MonoBehaviour {
     {
         //
     }
+    
+    public void setMapAnchor(Rigidbody2D mapAnchor)
+    {
+        this.mapAnchor = mapAnchor;
+        playerAnchor.gameObject.GetComponent<DistanceJoint2D>().connectedBody = mapAnchor;
+    }
 }
