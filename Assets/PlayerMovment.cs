@@ -8,7 +8,7 @@ public class PlayerMovment : MonoBehaviour {
     private Rigidbody2D rb2D;
     private Rigidbody2D playerAnchor;
     private Rigidbody2D mapAnchor;
-    private float thrust = 35.0f;
+    private float thrust;
 
 
     // Use this for initialization
