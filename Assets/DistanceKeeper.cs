@@ -20,13 +20,8 @@ public class DistanceKeeper : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (mapAnchorJoint.maxDistanceOnly)
-        {
-            
-            float DistY = mapAnchorRB.transform.position.y - transform.position.y;
-            float DistX = mapAnchorRB.transform.position.x - transform.position.x;
-
-            float distance = Mathf.Sqrt(Mathf.Pow(DistY, 2) + Mathf.Pow(DistX, 2));
-            if (distance >= mapAnchorJoint.distance)
+        {        
+            if (getCurrentDistance() >= mapAnchorJoint.distance)
             {
                 mapAnchorJoint.maxDistanceOnly = false;
             }
@@ -52,5 +47,10 @@ public class DistanceKeeper : MonoBehaviour {
         {
             GetComponent<DistanceJoint2D>().distance -= resizeSpeed;
         }
+    }
+
+    public float getCurrentDistance()
+    {
+        return Vector2.Distance(mapAnchorRB.transform.position, transform.position);
     }
 }
