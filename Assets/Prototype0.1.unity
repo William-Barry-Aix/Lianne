@@ -274,7 +274,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.79999995
+  m_Distance: 0.8000002
   m_MaxDistanceOnly: 1
 --- !u!50 &103846874
 Rigidbody2D:
@@ -367,7 +367,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0.15}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.14999998
+  m_Distance: 0.050000012
   m_MaxDistanceOnly: 0
 --- !u!50 &399137568
 Rigidbody2D:
@@ -400,7 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dca0d874603314cb6f18791452cacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0
 --- !u!1 &871151602
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +412,7 @@ GameObject:
   - component: {fileID: 871151605}
   - component: {fileID: 871151606}
   - component: {fileID: 871151607}
+  - component: {fileID: 871151608}
   m_Layer: 0
   m_Name: Rope Player Anchor
   m_TagString: Untagged
@@ -427,7 +427,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 871151602}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 2063411543}
@@ -531,6 +531,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3027b66cd9a0b9f44a9528da048cc099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &871151608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 871151602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d357d94fed663034dacc1e8d588cfe5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  node: {fileID: 1965478548743514, guid: 8890f5bb371674e4a8aa2960429a0aab, type: 2}
 --- !u!1 &904326640
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,7 +894,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.79999995
+  m_Distance: 0.8000001
   m_MaxDistanceOnly: 1
 --- !u!50 &1641367178
 Rigidbody2D:
@@ -1089,7 +1101,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 3.4999993}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.005
+  m_Distance: 0.19999981
   m_MaxDistanceOnly: 1
 --- !u!50 &1862748593
 Rigidbody2D:
@@ -1223,7 +1235,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.8000001
+  m_Distance: 0.8
   m_MaxDistanceOnly: 1
 --- !u!1 &2093044822
 GameObject:
